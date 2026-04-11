@@ -12,25 +12,33 @@
   const comingSub = $("dh-coming-sub");
   const errorSub = $("dh-error-sub");
 
+  const avatarBtn = $("ppAvatarBtn");
+  const pop = $("ppProfilePopover");
+  const nowTime = $("ppNowTime");
+
   if (!sel || !frame) return;
 
   const DASHBOARDS = [
     {
       id: "wfm_hc",
       name: "WFM Headcount Dashboard (Live)",
-      url: "#"
+      url: "wfm-headcount-dashboard.html",
+      comingSoon: true,
+      note: "This dashboard page is not created yet."
     },
     {
       id: "qa",
       name: "MOHRE Quality Assurance Live Dashboard",
-      url: "#"
+      url: "mohre-quality-assurance-live-dashboard.html",
+      comingSoon: true,
+      note: "This dashboard page is not created yet."
     },
     {
       id: "tech",
       name: "MOHRE Technical Support Live Dashboard",
-      url: "#",
+      url: "mohre-technical-support-live-dashboard.html",
       comingSoon: true,
-      note: "This dashboard is marked as Coming soon."
+      note: "This dashboard page is not created yet."
     }
   ];
 
@@ -39,35 +47,58 @@
     if (loading) loading.style.display = "none";
     if (coming) coming.style.display = "none";
     if (errorBox) errorBox.style.display = "none";
-    frame.style.display = "none";
+  }
+
+  function resetFrame() {
     frame.classList.remove("is-ready");
+    frame.style.display = "none";
+    frame.removeAttribute("src");
   }
 
   function resetView() {
     hideAllStates();
+    resetFrame();
     if (ph) ph.style.display = "flex";
-    frame.removeAttribute("src");
   }
 
   function showComing(message) {
     hideAllStates();
+    resetFrame();
     if (comingSub) {
       comingSub.textContent = message || "This dashboard is not published yet.";
     }
     if (coming) coming.style.display = "flex";
   }
 
-  function showLoading() {
-    hideAllStates();
-    if (loading) loading.style.display = "flex";
-  }
-
   function showError(message) {
     hideAllStates();
+    resetFrame();
     if (errorSub) {
       errorSub.textContent = message || "The selected dashboard could not be displayed.";
     }
     if (errorBox) errorBox.style.display = "flex";
+  }
+
+  function showLoading() {
+    hideAllStates();
+    resetFrame();
+    if (loading) loading.style.display = "flex";
+  }
+
+  function showFrame(url) {
+    showLoading();
+
+    frame.onload = function () {
+      hideAllStates();
+      frame.style.display = "block";
+      frame.classList.add("is-ready");
+    };
+
+    frame.onerror = function () {
+      showError("The selected dashboard page could not be loaded.");
+    };
+
+    frame.src = url;
   }
 
   function buildDropdown() {
@@ -93,27 +124,55 @@
       return;
     }
 
-    if (!d.url || d.url === "#") {
-      showError(`"${d.name}" is not linked yet. Add the real dashboard URL inside dashboard.js.`);
-      return;
-    }
+    showFrame(d.url);
+  }
 
-    showLoading();
+  function closePop() {
+    if (!pop || !avatarBtn) return;
+    pop.classList.remove("is-open");
+    pop.setAttribute("aria-hidden", "true");
+    avatarBtn.setAttribute("aria-expanded", "false");
+  }
 
-    frame.onload = function () {
-      hideAllStates();
-      frame.style.display = "block";
-      frame.classList.add("is-ready");
+  function openPop() {
+    if (!pop || !avatarBtn) return;
+    pop.classList.add("is-open");
+    pop.setAttribute("aria-hidden", "false");
+    avatarBtn.setAttribute("aria-expanded", "true");
+  }
+
+  function setNowTime() {
+    if (!nowTime) return;
+    const d = new Date();
+    const opts = {
+      year: "numeric",
+      month: "long",
+      day: "numeric",
+      hour: "2-digit",
+      minute: "2-digit"
     };
+    nowTime.textContent = d.toLocaleString(undefined, opts);
+  }
 
-    frame.onerror = function () {
-      showError(`"${d.name}" could not be loaded.`);
-    };
+  if (avatarBtn && pop) {
+    avatarBtn.addEventListener("click", function (ev) {
+      ev.preventDefault();
+      ev.stopPropagation();
+      pop.classList.contains("is-open") ? closePop() : openPop();
+    });
 
-    frame.src = d.url;
+    document.addEventListener("click", function (ev) {
+      if (!ev.target.closest(".pp-profile")) closePop();
+    });
+
+    document.addEventListener("keydown", function (ev) {
+      if (ev.key === "Escape") closePop();
+    });
   }
 
   buildDropdown();
   resetView();
   sel.addEventListener("change", handleChange);
+  setNowTime();
+  setInterval(setNowTime, 60000);
 })();
