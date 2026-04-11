@@ -7,6 +7,116 @@
   <link rel="stylesheet" href="home.css" />
 </head>
 <body>
+
+  <!-- =========================
+       HEADER
+  ========================== -->
+  <header class="pp-header" role="banner">
+    <div class="pp-topwhite">
+      <div class="pp-topwhite-inner">
+
+        <a class="pp-brand" href="home.html" aria-label="Home">
+          <img
+            class="pp-brand-logo"
+            src="02.png"
+            alt="TWASOUL"
+            width="86"
+            height="86"
+          />
+        </a>
+
+        <div class="pp-topwhite-right" aria-label="Header actions">
+          <div class="pp-pillbar" aria-label="Quick actions">
+            <a class="pp-pill" href="#" aria-label="Chat">
+              <span class="pp-pill-text">Chat</span>
+            </a>
+
+            <a class="pp-pill" href="#" aria-label="Inbox">
+              <span class="pp-pill-text">Inbox</span>
+              <span class="pp-badge" aria-label="0 unread">0</span>
+            </a>
+          </div>
+
+          <div class="pp-topwhite-search" aria-label="Search">
+            <input class="pp-search-input" type="search" placeholder="Search in portal" />
+          </div>
+
+          <div class="pp-profile">
+            <button
+              type="button"
+              class="pp-avatar-btn"
+              id="ppAvatarBtn"
+              aria-haspopup="dialog"
+              aria-expanded="false"
+              aria-controls="ppProfilePopover"
+              title="Profile"
+            >
+              <img
+                id="ppAvatarImg"
+                class="pp-avatar-img"
+                src="profile-avatar.png"
+                alt="Profile"
+                width="44"
+                height="44"
+              />
+            </button>
+
+            <div
+              class="pp-popover"
+              id="ppProfilePopover"
+              role="dialog"
+              aria-label="Profile menu"
+              aria-hidden="true"
+            >
+              <div class="pp-popover-top">
+                <div class="pp-popover-photo">
+                  <img
+                    id="ppAvatarImgLarge"
+                    src="profile-avatar.png"
+                    alt="Profile photo"
+                    width="82"
+                    height="82"
+                  />
+                </div>
+
+                <div class="pp-popover-meta">
+                  <div class="pp-popover-name">Said Abdallah Othman</div>
+                  <div class="pp-popover-sub">WFM</div>
+                  <div class="pp-popover-sub2">Real Time Management Officer</div>
+                </div>
+              </div>
+
+              <div class="pp-popover-footer">
+                <a href="#" class="pp-footlink">Preferences</a>
+                <a href="#" class="pp-footlink">My Files</a>
+                <a href="#" class="pp-footlink pp-footlink-danger">Logout</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="pp-navbar">
+      <div class="pp-navbar-inner">
+        <nav class="pp-menu" aria-label="Main Navigation">
+          <ul class="pp-menu-root">
+            <li class="pp-item"><a class="pp-link is-active" href="home.html">Home</a></li>
+            <li class="pp-item"><a class="pp-link" href="dashboard/index.html">Dashboard</a></li>
+            <li class="pp-item"><a class="pp-link" href="#">WFM</a></li>
+            <li class="pp-item"><a class="pp-link" href="#">My Request</a></li>
+            <li class="pp-item"><a class="pp-link" href="#">Operational Activities</a></li>
+            <li class="pp-item"><a class="pp-link" href="#">Performance</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <!-- =========================
+       HOME CONTENT
+  ========================== -->
   <div id="wfm-home" class="wfm-home">
     <section class="wfm-hero">
       <div class="wfm-shell">
@@ -274,5 +384,41 @@
   </div>
 
   <script src="home.js"></script>
+  <script>
+    (function () {
+      const avatarBtn = document.getElementById("ppAvatarBtn");
+      const pop = document.getElementById("ppProfilePopover");
+
+      function closePop() {
+        if (!pop || !avatarBtn) return;
+        pop.classList.remove("is-open");
+        pop.setAttribute("aria-hidden", "true");
+        avatarBtn.setAttribute("aria-expanded", "false");
+      }
+
+      function openPop() {
+        if (!pop || !avatarBtn) return;
+        pop.classList.add("is-open");
+        pop.setAttribute("aria-hidden", "false");
+        avatarBtn.setAttribute("aria-expanded", "true");
+      }
+
+      if (avatarBtn && pop) {
+        avatarBtn.addEventListener("click", function (ev) {
+          ev.preventDefault();
+          ev.stopPropagation();
+          pop.classList.contains("is-open") ? closePop() : openPop();
+        });
+
+        document.addEventListener("click", function (ev) {
+          if (!ev.target.closest(".pp-profile")) closePop();
+        });
+
+        document.addEventListener("keydown", function (ev) {
+          if (ev.key === "Escape") closePop();
+        });
+      }
+    })();
+  </script>
 </body>
 </html>
