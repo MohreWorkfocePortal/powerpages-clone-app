@@ -2,53 +2,178 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Dashboard | TWASOUL</title>
-  <link rel="stylesheet" href="../home.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dashboard | TWASOUL Workforce Portal</title>
   <link rel="stylesheet" href="dashboard.css" />
 </head>
 <body>
 
-  <!-- HEADER (same as home) -->
-  <header class="pp-header">
+  <!-- =========================
+       HEADER
+  ========================== -->
+  <header class="pp-header" role="banner">
     <div class="pp-topwhite">
       <div class="pp-topwhite-inner">
-        <a class="pp-brand" href="../home.html">
-          <img src="../02.png" width="80" />
+
+        <a class="pp-brand" href="../home.html" aria-label="Home">
+          <img class="pp-brand-logo" src="../02.png" alt="TWASOUL" />
         </a>
 
-        <div class="pp-topwhite-right">
-          <a class="pp-pill">Chat</a>
-          <a class="pp-pill">Inbox <span class="pp-badge">0</span></a>
-          <input class="pp-search-input" placeholder="Search in portal" />
-          <img class="pp-avatar-img" src="../profile-avatar.png" width="40"/>
+        <div class="pp-topwhite-right" aria-label="Header actions">
+          <div class="pp-pillbar" aria-label="Quick actions">
+            <a class="pp-pill" href="#" aria-label="Chat">
+              <span class="pp-pill-text">Chat</span>
+            </a>
+
+            <a class="pp-pill" href="#" aria-label="Inbox">
+              <span class="pp-pill-text">Inbox</span>
+              <span class="pp-badge" aria-label="0 unread">0</span>
+            </a>
+          </div>
+
+          <div class="pp-topwhite-search" aria-label="Search">
+            <div class="pp-search-wrap">
+              <input type="text" class="pp-search-input" placeholder="Search in portal" />
+            </div>
+          </div>
+
+          <div class="pp-profile">
+            <button
+              type="button"
+              class="pp-avatar-btn"
+              id="ppAvatarBtn"
+              aria-haspopup="dialog"
+              aria-expanded="false"
+              aria-controls="ppProfilePopover"
+              title="Profile"
+            >
+              <img id="ppAvatarImg" class="pp-avatar-img" src="../profile-avatar.png" alt="Profile" />
+            </button>
+
+            <input id="ppAvatarFile" type="file" accept="image/*" class="pp-avatar-file" />
+
+            <div class="pp-popover" id="ppProfilePopover" role="dialog" aria-label="Profile menu" aria-hidden="true">
+              <div class="pp-popover-top">
+                <div class="pp-popover-photo">
+                  <img id="ppAvatarImgLarge" src="../profile-avatar.png" alt="Profile photo" class="pp-avatar-large" />
+                </div>
+
+                <div class="pp-popover-meta">
+                  <div class="pp-popover-name">Said Abdallah Othman</div>
+                  <div class="pp-popover-sub">WFM</div>
+                  <div class="pp-popover-sub2">Real Time Management Officer</div>
+
+                  <div class="pp-popover-line">
+                    <span>⌂</span>
+                    <span>MOHRE-UAE</span>
+                  </div>
+
+                  <div class="pp-popover-line">
+                    <span>📍</span>
+                    <span>Aldhaid, Sharjah</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="pp-popover-mid">
+                <div class="pp-lastlogin">
+                  <div class="pp-lastlogin-label">Last Login:</div>
+                  <div class="pp-lastlogin-value" id="ppNowTime">--</div>
+                </div>
+
+                <div class="pp-popover-box">
+                  <span class="pp-popover-placeholder">What’s on your mind?</span>
+                </div>
+
+                <button type="button" class="pp-popover-btn">Activate Queues</button>
+              </div>
+
+              <div class="pp-popover-footer">
+                <a href="#" class="pp-footlink">Preferences</a>
+                <a href="#" class="pp-footlink">My Files</a>
+                <a href="#" class="pp-footlink pp-footlink-danger">Logout</a>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
 
     <div class="pp-navbar">
-      <ul class="pp-menu-root">
-        <li><a class="pp-link" href="../home.html">Home</a></li>
-        <li><a class="pp-link is-active" href="#">Dashboard</a></li>
-        <li><a class="pp-link">WFM</a></li>
-        <li><a class="pp-link">My Request</a></li>
-        <li><a class="pp-link">Operational Activities</a></li>
-        <li><a class="pp-link">Performance</a></li>
-      </ul>
+      <div class="pp-navbar-inner">
+        <nav class="pp-menu" aria-label="Main Navigation">
+          <ul class="pp-menu-root">
+            <li class="pp-item"><a class="pp-link pp-home" href="../home.html">⌂</a></li>
+            <li class="pp-item"><a class="pp-link" href="../home.html">Home</a></li>
+            <li class="pp-item"><a class="pp-link is-active" href="./index.html">Dashboard</a></li>
+            <li class="pp-item"><a class="pp-link" href="#">WFM</a></li>
+            <li class="pp-item"><a class="pp-link" href="#">My Request</a></li>
+            <li class="pp-item"><a class="pp-link" href="#">Operational Activities</a></li>
+            <li class="pp-item"><a class="pp-link" href="#">Performance</a></li>
+          </ul>
+        </nav>
+
+        <nav class="pp-crumbbar" aria-label="Breadcrumb">
+          <a href="../home.html">Home</a>
+          <span class="pp-crumb-sep">›</span>
+          <span>Dashboard</span>
+        </nav>
+      </div>
     </div>
   </header>
 
-  <!-- MAIN DASHBOARD CONTENT -->
-  <main style="padding:20px;">
-    <h1>Dashboards</h1>
-    <p>Choose a dashboard to view.</p>
+  <!-- =========================
+       DASHBOARD PAGE
+  ========================== -->
+  <main class="page-main">
+    <div id="dash-hub" class="dh-wrap">
+      <div class="dh-head">
+        <div class="dh-head-left">
+          <h1 class="dh-title">Dashboards</h1>
+          <p class="dh-sub">Choose a dashboard to view.</p>
+        </div>
 
-    <select>
-      <option>Select dashboard</option>
-      <option>Operations</option>
-      <option>Performance</option>
-    </select>
+        <div class="dh-head-right">
+          <label class="dh-label" for="dh-select">Select dashboard</label>
+          <select id="dh-select" class="dh-select">
+            <option value="" selected disabled>— Select —</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="dh-stage">
+        <div id="dh-placeholder" class="dh-placeholder">
+          <div class="dh-ph-title">No dashboard selected</div>
+          <div class="dh-ph-sub">Pick a dashboard from the dropdown to load it here.</div>
+        </div>
+
+        <div id="dh-loading" class="dh-loading" style="display:none;">
+          <div class="dh-spinner" aria-hidden="true"></div>
+          <div class="dh-ph-title">Loading dashboard</div>
+          <div class="dh-ph-sub">Please wait while the selected dashboard is rendered.</div>
+        </div>
+
+        <div id="dh-coming" class="dh-coming" style="display:none;">
+          <div class="dh-ph-title">Coming soon</div>
+          <div id="dh-coming-sub" class="dh-ph-sub">This dashboard is not published yet.</div>
+        </div>
+
+        <div id="dh-error" class="dh-error" style="display:none;">
+          <div class="dh-ph-title">Dashboard could not be displayed</div>
+          <div id="dh-error-sub" class="dh-ph-sub">The selected dashboard page could not be loaded.</div>
+        </div>
+
+        <iframe
+          id="dh-frame"
+          class="dh-frame"
+          title="Dashboard Viewer"
+          loading="lazy"
+          style="display:none;"
+        ></iframe>
+      </div>
+    </div>
   </main>
 
+  <script src="dashboard.js"></script>
 </body>
 </html>
