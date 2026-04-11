@@ -1,23 +1,139 @@
+/* Reset */
 body {
-    font-family: Arial, sans-serif;
-    text-align: center;
-    margin-top: 50px;
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #f5f7fa;
 }
 
-h1 {
-    color: #333;
+/* HEADER */
+.pp-topwhite {
+  background: #ffffff;
+  border-bottom: 1px solid #ddd;
 }
 
-a {
-    display: inline-block;
-    margin-top: 20px;
-    padding: 10px 20px;
-    background-color: #0078d4;
-    color: white;
-    text-decoration: none;
-    border-radius: 5px;
+.pp-topwhite-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
 }
 
-a:hover {
-    background-color: #005a9e;
+.pp-topwhite-right {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.pp-pill {
+  background: #0d6efd;
+  color: white;
+  padding: 6px 12px;
+  border-radius: 6px;
+  text-decoration: none;
+}
+
+.pp-badge {
+  background: red;
+  color: white;
+  padding: 2px 6px;
+  border-radius: 10px;
+  font-size: 12px;
+}
+
+.pp-search-input {
+  padding: 6px;
+}
+
+.pp-avatar-img {
+  border-radius: 50%;
+}
+
+/* NAVBAR */
+.pp-navbar {
+  background: #f8f9fa;
+  border-bottom: 1px solid #ddd;
+}
+
+.pp-menu-root {
+  list-style: none;
+  display: flex;
+  gap: 15px;
+  padding: 10px 20px;
+  margin: 0;
+}
+
+.pp-link {
+  text-decoration: none;
+  color: black;
+}
+
+.pp-link.is-active {
+  font-weight: bold;
+  border-bottom: 2px solid #0d6efd;
+}
+
+/* MAIN */
+.home-main {
+  padding: 30px;
+}
+
+/* HERO */
+.home-hero {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 30px;
+}
+
+.home-hero-card {
+  background: white;
+  padding: 30px;
+  border-radius: 10px;
+  text-align: center;
+  width: 500px;
+}
+
+.home-title {
+  margin: 10px 0;
+}
+
+.home-actions {
+  margin-top: 20px;
+}
+
+.home-btn {
+  padding: 10px 15px;
+  border-radius: 6px;
+  text-decoration: none;
+  margin: 5px;
+  display: inline-block;
+}
+
+.home-btn-primary {
+  background: #0d6efd;
+  color: white;
+}
+
+.home-btn-secondary {
+  background: #6c757d;
+  color: white;
+}
+
+/* GRID */
+.home-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+.home-card {
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  text-decoration: none;
+  color: black;
+  transition: 0.3s;
+}
+
+.home-card:hover {
+  transform: translateY(-5px);
 }
