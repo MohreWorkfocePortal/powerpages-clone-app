@@ -246,6 +246,43 @@
   </main>
 
   <script src="../header.js"></script>
-  <script src="dashboard.js"></script>
+<script src="dashboard.js"></script>
+
+<script>
+  (function () {
+    const avatarBtn = document.getElementById("ppAvatarBtn");
+    const pop = document.getElementById("ppProfilePopover");
+
+    function closePop() {
+      if (!pop || !avatarBtn) return;
+      pop.classList.remove("is-open");
+      pop.setAttribute("aria-hidden", "true");
+      avatarBtn.setAttribute("aria-expanded", "false");
+    }
+
+    function openPop() {
+      if (!pop || !avatarBtn) return;
+      pop.classList.add("is-open");
+      pop.setAttribute("aria-hidden", "false");
+      avatarBtn.setAttribute("aria-expanded", "true");
+    }
+
+    if (avatarBtn && pop) {
+      avatarBtn.addEventListener("click", function (ev) {
+        ev.preventDefault();
+        ev.stopPropagation();
+        pop.classList.contains("is-open") ? closePop() : openPop();
+      });
+
+      document.addEventListener("click", function (ev) {
+        if (!ev.target.closest(".pp-profile")) closePop();
+      });
+
+      document.addEventListener("keydown", function (ev) {
+        if (ev.key === "Escape") closePop();
+      });
+    }
+  })();
+</script>
 </body>
 </html>
