@@ -25,20 +25,20 @@ body{
 .wfm-wrap{
   width: 100%;
   margin: 0;
-  padding: 10px 0 30px;
+  padding: 2px 0 24px;
   background: #fff;
 }
 
 .wfm-container{
   width: 100%;
   margin: 0;
-  padding: 0 18px;
+  padding: 0 14px 0 4px;
 }
 
 .wfm-grid{
   display: grid;
-  grid-template-columns: 280px 1fr;
-  gap: 16px;
+  grid-template-columns: 270px 1fr;
+  gap: 12px;
   align-items: start;
 }
 
@@ -48,13 +48,13 @@ body{
   box-shadow: var(--wfm-shadow);
   padding: 14px;
   position: sticky;
-  top: 14px;
+  top: 8px;
 }
 
 .wfm-side-title{
   font-weight: 800;
   color: var(--wfm-text);
-  margin: 2px 6px 10px;
+  margin: 0 6px 10px;
   font-size: 16px;
 }
 
@@ -94,12 +94,14 @@ body{
   background: #fff;
   display: block;
   width: 100%;
+  padding-top: 0;
+  margin-top: 0;
 }
 
 .wfm-title{
   font-size: 34px;
   line-height: 1.15;
-  margin: 8px 0 20px;
+  margin: 0 0 18px;
   font-weight: 500;
   color: var(--wfm-title);
   letter-spacing: .2px;
@@ -111,7 +113,7 @@ body{
 .wfm-panel{
   background: #fff;
   border-radius: 16px;
-  padding: 6px 0;
+  padding: 0;
   width: 100%;
 }
 
@@ -178,9 +180,10 @@ body{
 .wfm-empty{
   border: 1px dashed #d9d9d9;
   border-radius: 12px;
-  padding: 16px;
+  padding: 14px 16px;
   color: #555;
   background: #fff;
+  margin-top: 6px;
 }
 
 @media (max-width: 1080px){
