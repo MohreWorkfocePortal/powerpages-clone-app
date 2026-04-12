@@ -304,6 +304,10 @@
 .pp-crumb-sep{
   color: #9ca3af;
 }
+.pp-crumbbar:empty {
+  display: none;
+  padding: 0;
+}
 
 .pp-menu-root{
   list-style: none;
@@ -589,5 +593,17 @@
     flex-direction: column;
     align-items: stretch;
     padding: 10px 0;
+  }
+}
+.page-main {
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 18px 24px 40px;
+}
+
+@media (max-width: 768px) {
+  .page-main {
+    padding: 14px;
   }
 }
