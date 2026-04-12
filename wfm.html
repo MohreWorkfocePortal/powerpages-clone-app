@@ -1,1 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>WFM | TWASOUL Workforce Portal</title>
 
+  <!-- Shared header -->
+  <link rel="stylesheet" href="header.css" />
+
+  <!-- WFM page styles -->
+  <link rel="stylesheet" href="wfm.css" />
+</head>
+
+<body>
+
+<!-- =========================
+     HEADER (SHARED)
+========================= -->
+<header class="pp-header" role="banner">
+
+  <div class="pp-topwhite">
+    <div class="pp-topwhite-inner">
+
+      <a class="pp-brand" href="home.html">
+        <img src="assets/images/02.png" class="pp-brand-logo" alt="TWASOUL"/>
+      </a>
+
+      <div class="pp-topwhite-right">
+
+        <div class="pp-pillbar">
+          <a class="pp-pill" href="#">Chat</a>
+          <a class="pp-pill" href="#">Inbox <span class="pp-badge">0</span></a>
+        </div>
+
+        <div class="pp-topwhite-search">
+          <input class="pp-search-input" type="search" placeholder="Search in portal"/>
+        </div>
+
+        <div class="pp-profile">
+          <button class="pp-avatar-btn" id="ppAvatarBtn">
+            <img src="assets/images/profile-avatar.png" class="pp-avatar-img"/>
+          </button>
+
+          <div class="pp-popover" id="ppProfilePopover">
+            <div class="pp-popover-top">
+              <div class="pp-popover-photo">
+                <img src="assets/images/profile-avatar.png"/>
+              </div>
+              <div class="pp-popover-meta">
+                <div class="pp-popover-name">Said Abdallah Othman</div>
+                <div class="pp-popover-sub">WFM</div>
+                <div class="pp-popover-sub2">Real Time Management Officer</div>
+              </div>
+            </div>
+
+            <div class="pp-popover-footer">
+              <a href="#" class="pp-footlink">Preferences</a>
+              <a href="#" class="pp-footlink">My Files</a>
+              <a href="#" class="pp-footlink pp-footlink-danger">Logout</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="pp-navbar">
+    <div class="pp-navbar-inner">
+
+      <nav class="pp-menu">
+        <ul class="pp-menu-root">
+          <li class="pp-item"><a class="pp-link" href="home.html">Home</a></li>
+          <li class="pp-item"><a class="pp-link" href="dashboard/index.html">Dashboard</a></li>
+          <li class="pp-item"><a class="pp-link is-active" href="wfm.html">WFM</a></li>
+          <li class="pp-item"><a class="pp-link" href="#">My Request</a></li>
+          <li class="pp-item"><a class="pp-link" href="#">Operational Activities</a></li>
+          <li class="pp-item"><a class="pp-link" href="#">Performance</a></li>
+        </ul>
+      </nav>
+
+      <!-- Breadcrumb -->
+      <div class="pp-crumbbar">
+        <a href="home.html">Home</a>
+        <span class="pp-crumb-sep">›</span>
+        <span>WFM</span>
+      </div>
+
+    </div>
+  </div>
+</header>
+
+<!-- =========================
+     MAIN CONTENT
+========================= -->
+<main id="mainContent" class="page-main">
+
+  <div class="wfm-wrap">
+    <div class="wfm-container">
+
+      <div class="wfm-grid">
+
+        <!-- LEFT NAV -->
+        <aside class="wfm-side">
+          <div class="wfm-side-title">WFM</div>
+
+          <div class="wfm-nav" id="wfmNav">
+            <a href="wfm.html?section=scheduling" data-section="scheduling">Scheduling</a>
+            <a href="wfm.html?section=leave" data-section="leave">Leave and Time Off</a>
+            <a href="wfm.html?section=attendance" data-section="attendance">Time and Attendance</a>
+            <a href="wfm.html?section=requests" data-section="requests">Requests and Submissions</a>
+          </div>
+        </aside>
+
+        <!-- MAIN -->
+        <section class="wfm-main">
+          <h1 class="wfm-title" id="wfmTitle"></h1>
+
+          <div class="wfm-panel">
+            <div class="wfm-tiles" id="wfmTiles"></div>
+
+            <div class="wfm-empty" id="wfmEmpty">
+              Please select a section from the left.
+            </div>
+          </div>
+        </section>
+
+      </div>
+
+    </div>
+  </div>
+
+</main>
+
+<!-- =========================
+     SCRIPTS
+========================= -->
+<script src="header.js"></script>
+<script src="wfm.js"></script>
+
+</body>
+</html>
