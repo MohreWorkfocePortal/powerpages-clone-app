@@ -220,3 +220,49 @@ body{
     font-size: 26px;
   }
 }
+/* =========================
+   FORCE FULL-WIDTH ALIGN (LEFT EDGE FIX)
+========================= */
+
+/* Kill any global container spacing */
+.page-main,
+main,
+.container,
+.container-fluid,
+.content-wrapper,
+#content,
+#content-container {
+  max-width: 100% !important;
+  width: 100% !important;
+  margin: 0 !important;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+
+/* Force WFM wrapper to stick to left edge */
+.wfm-wrap {
+  margin: 0 !important;
+  padding-left: 0 !important;
+}
+
+/* Force inner container flush left */
+.wfm-container {
+  margin: 0 !important;
+  padding-left: 8px !important;  /* small breathing space like Power Pages */
+  padding-right: 16px !important;
+}
+
+/* Remove hidden left spacing from grid */
+.wfm-grid {
+  margin-left: 0 !important;
+}
+
+/* Sidebar must hug left */
+.wfm-side {
+  margin-left: 0 !important;
+}
+
+/* Breadcrumb alignment fix (optional but cleaner) */
+.pp-crumbbar {
+  padding-left: 8px !important;
+}
