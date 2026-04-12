@@ -1,40 +1,43 @@
 (function () {
+  const titleEl = document.getElementById("mrTitle");
+  const blankEl = document.getElementById("mrBlank");
+  const navLinks = document.querySelectorAll("#mrNav a[data-key]");
 
-  function normalizePath(p) {
-    return (p || "").toLowerCase().replace(/\/+$/, "") + "/";
-  }
-
-  const current = normalizePath(location.pathname);
-  const nav = document.getElementById("mrNav");
-
-  if (!nav) return;
-
-  const links = nav.querySelectorAll("a[href]");
-  let matched = null;
-
-  links.forEach(function (a) {
-    const href = a.getAttribute("href") || "";
-
-    if (!href.startsWith("/")) return;
-
-    const h = normalizePath(href);
-
-    if (current === h || current.startsWith(h)) {
-      if (
-        !matched ||
-        h.length > normalizePath(matched.getAttribute("href")).length
-      ) {
-        matched = a;
-      }
+  const SECTIONS = {
+    "request-center": {
+      title: "Request Center",
+      message: "Request Center page will open here next."
+    },
+    "approvals-console": {
+      title: "Approvals Console",
+      message: "Approvals Console page will open here next."
     }
-  });
+  };
 
-  // Apply active state
-  if (matched) {
-    links.forEach(function (a) {
-      a.classList.remove("is-active");
-    });
-    matched.classList.add("is-active");
+  function getSectionFromUrl() {
+    const params = new URLSearchParams(window.location.search);
+    const section = (params.get("section") || "").toLowerCase().trim();
+    return SECTIONS[section] ? section : "";
   }
 
+  function setActive(sectionKey) {
+    navLinks.forEach((link) => {
+      link.classList.toggle("is-active", link.dataset.key === sectionKey);
+    });
+  }
+
+  function renderSection(sectionKey) {
+    if (!sectionKey || !SECTIONS[sectionKey]) {
+      titleEl.textContent = "My Request";
+      blankEl.textContent = "Please select an option from the left.";
+      setActive("");
+      return;
+    }
+
+    titleEl.textContent = "My Request";
+    blankEl.textContent = SECTIONS[sectionKey].message;
+    setActive(sectionKey);
+  }
+
+  renderSection(getSectionFromUrl());
 })();
