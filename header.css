@@ -198,8 +198,8 @@
   position: relative;
   display: flex;
   align-items: center;
+  z-index: 1000003;
 }
-
 .pp-avatar-btn{
   position: relative;
   width: 42px;
@@ -390,7 +390,7 @@
   border: 1px solid var(--line);
   border-radius: 14px;
   box-shadow: 0 18px 38px rgba(15,23,42,.18);
-  z-index: 1000002;
+  z-index: 1000005;
   display: none;
   overflow-y: auto;
   overflow-x: hidden;
@@ -534,6 +534,7 @@
 .pp-popover-footer{
   display: flex;
   border-top: 1px solid var(--line);
+  background: #fff;
 }
 
 .pp-footlink{
@@ -608,30 +609,10 @@
   .page-main {
     padding: 14px;
   }
-}
-.pp-popover-footer{
-  position: sticky;
-  bottom: 0;
-  background: #fff;
-}
-.pp-topwhite-inner{
-  max-width: 1440px;
-  margin: 0 auto;
-}
-
+} 
+.pp-topwhite,
+.pp-topwhite-inner,
+.pp-navbar,
 .pp-navbar-inner{
-  max-width: 1440px;
-  margin: 0 auto;
-}
-
-.pp-topwhite-right > *{
-  flex-shrink: 0;
-}
-
-.pp-brand-logo{
-  vertical-align: middle;
-}
-
-.pp-navbar-inner{
-  min-height: 64px;
+  overflow: visible !important;
 }
