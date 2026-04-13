@@ -11,15 +11,15 @@
         { title: "Agent Compliance", url: "#", icon: "tools" }
       ]
     },
-    leave: {
-      label: "Leave and Time Off",
-      tiles: [
-        { title: "Annual Leave", url: "wfm/annual-leave.html", icon: "palm" },
-        { title: "Time Off", url: "#", icon: "calendar" },
-        { title: "Leave Balance", url: "#", icon: "chart" },
-        { title: "Comp-Off Balance", url: "#", icon: "hourglass" }
-      ]
-    },
+   leave: {
+  label: "Leave and Time Off",
+  tiles: [
+    { title: "Annual Leave", url: "wfm/annual-leave.html", icon: "palm" },
+    { title: "Time Off", url: "#", icon: "calendar" },
+    { title: "Leave Balance", url: "#", icon: "chart" },
+    { title: "Comp-Off Balance", url: "#", icon: "hourglass" }
+  ]
+},
     attendance: {
       label: "Time and Attendance",
       tiles: [
