@@ -1,7 +1,7 @@
 /* =========================
    Master Schedule
    GitHub child-page version
-   Keeps Power Pages look
+   Tuned to match Power Pages
    ========================= */
 
 html,
@@ -36,9 +36,9 @@ div[style*="background"] {
 
 .page-main {
   width: 100%;
-  max-width: 1440px;
-  margin: 0 auto;
-  padding: 18px 24px 40px;
+  max-width: none;
+  margin: 0;
+  padding: 14px 16px 20px;
   overflow-x: hidden;
   box-sizing: border-box;
 }
@@ -54,12 +54,18 @@ div[style*="background"] {
 .ms-page {
   width: 100%;
   max-width: 100%;
-  padding: 16px 18px 10px;
+  padding: 0;
   background: #fff;
   color: #111827;
-  min-height: 100vh;
+  min-height: calc(100vh - 180px);
   box-sizing: border-box;
   overflow-x: hidden;
+}
+
+.ms-title-row,
+.ms-control-row {
+  padding-left: 4px;
+  padding-right: 4px;
 }
 
 /* =========================
@@ -107,6 +113,10 @@ div[style*="background"] {
 
 .ms-right-controls {
   justify-self: end;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: nowrap;
 }
 
 .ms-view-switch {
@@ -173,13 +183,6 @@ div[style*="background"] {
 .ms-btn.primary:hover {
   background: #9d5f31;
   border-color: #9d5f31;
-}
-
-.ms-right-controls {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  flex-wrap: nowrap;
 }
 
 /* =========================
@@ -409,21 +412,28 @@ div[style*="background"] {
 /* =========================
    Table
    ========================= */
+.ms-table-wrap,
+.ms-bottom-dock {
+  margin-left: 0;
+  margin-right: 0;
+}
+
 .ms-table-wrap {
   width: 100%;
   max-width: 100%;
-  height: calc(100vh - 200px);
+  height: calc(100vh - 270px);
   min-height: 420px;
   overflow-x: auto;
   overflow-y: auto;
   border: 1px solid #e5e7eb;
-  border-radius: 14px;
+  border-radius: 14px 14px 0 0;
   background: #fff;
   box-sizing: border-box;
 }
 
 .ms-table {
-  width: max(1200px, 100%);
+  width: max-content;
+  min-width: 100%;
   border-collapse: separate;
   border-spacing: 0;
   font-size: 12px;
@@ -546,11 +556,12 @@ div[style*="background"] {
   z-index: 30;
   width: 100%;
   max-width: 100%;
-  margin-top: 8px;
+  margin-top: 0;
   border: 1px solid #e5e7eb;
-  border-radius: 14px;
+  border-top: 0;
+  border-radius: 0 0 14px 14px;
   background: #fff;
-  box-shadow: 0 -8px 20px rgba(15, 23, 42, 0.05);
+  box-shadow: 0 -6px 14px rgba(15, 23, 42, 0.04);
   padding: 8px 10px 10px;
   box-sizing: border-box;
   overflow: hidden;
@@ -561,9 +572,15 @@ div[style*="background"] {
   flex-wrap: nowrap;
   gap: 6px;
   overflow-x: auto;
+  overflow-y: hidden;
   padding-bottom: 8px;
   max-width: 100%;
   box-sizing: border-box;
+  scrollbar-width: none;
+}
+
+.ms-alpha-wrap::-webkit-scrollbar {
+  display: none;
 }
 
 .ms-alpha-btn {
@@ -594,7 +611,7 @@ div[style*="background"] {
   max-width: 100%;
   overflow-x: auto;
   overflow-y: hidden;
-  height: 16px;
+  height: 18px;
   box-sizing: border-box;
 }
 
@@ -604,7 +621,6 @@ div[style*="background"] {
 
 .ms-bottom-scroll::-webkit-scrollbar,
 .ms-table-wrap::-webkit-scrollbar,
-.ms-alpha-wrap::-webkit-scrollbar,
 .ms-summary-wrap::-webkit-scrollbar,
 .ms-filter-list::-webkit-scrollbar,
 .ms-hide-list::-webkit-scrollbar {
@@ -614,7 +630,6 @@ div[style*="background"] {
 
 .ms-bottom-scroll::-webkit-scrollbar-thumb,
 .ms-table-wrap::-webkit-scrollbar-thumb,
-.ms-alpha-wrap::-webkit-scrollbar-thumb,
 .ms-summary-wrap::-webkit-scrollbar-thumb,
 .ms-filter-list::-webkit-scrollbar-thumb,
 .ms-hide-list::-webkit-scrollbar-thumb {
@@ -625,7 +640,6 @@ div[style*="background"] {
 
 .ms-bottom-scroll::-webkit-scrollbar-track,
 .ms-table-wrap::-webkit-scrollbar-track,
-.ms-alpha-wrap::-webkit-scrollbar-track,
 .ms-summary-wrap::-webkit-scrollbar-track,
 .ms-filter-list::-webkit-scrollbar-track,
 .ms-hide-list::-webkit-scrollbar-track {
@@ -1000,6 +1014,6 @@ div[style*="background"] {
   }
 
   .ms-table-wrap {
-    height: calc(100vh - 300px);
+    height: calc(100vh - 320px);
   }
 }
