@@ -57,11 +57,13 @@ div[style*="background"] {
   padding: 0;
   background: #fff;
   color: #111827;
-  min-height: calc(100vh - 180px);
+  height: calc(100vh - 210px);
+  min-height: calc(100vh - 210px);
   box-sizing: border-box;
-  overflow-x: hidden;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
 }
-
 .ms-title-row,
 .ms-control-row {
   padding-left: 4px;
@@ -417,20 +419,28 @@ div[style*="background"] {
   margin-left: 0;
   margin-right: 0;
 }
-
+.ms-bottom-dock::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 14px;
+  right: 14px;
+  height: 1px;
+  background: #eef2f7;
+}
 .ms-table-wrap {
   width: 100%;
   max-width: 100%;
-  height: calc(100vh - 270px);
-  min-height: 420px;
+  flex: 1 1 auto;
+  min-height: 0;
   overflow-x: auto;
   overflow-y: auto;
   border: 1px solid #e5e7eb;
+  border-bottom: 0;
   border-radius: 14px 14px 0 0;
   background: #fff;
   box-sizing: border-box;
 }
-
 .ms-table {
   width: max-content;
   min-width: 100%;
@@ -551,8 +561,8 @@ div[style*="background"] {
    Bottom dock always visible
    ========================= */
 .ms-bottom-dock {
-  position: sticky;
-  bottom: 0;
+  flex: 0 0 auto;
+  position: relative;
   z-index: 30;
   width: 100%;
   max-width: 100%;
@@ -561,8 +571,8 @@ div[style*="background"] {
   border-top: 0;
   border-radius: 0 0 14px 14px;
   background: #fff;
-  box-shadow: 0 -6px 14px rgba(15, 23, 42, 0.04);
-  padding: 8px 10px 10px;
+  box-shadow: 0 -8px 16px rgba(15, 23, 42, 0.05);
+  padding: 10px 12px 12px;
   box-sizing: border-box;
   overflow: hidden;
 }
