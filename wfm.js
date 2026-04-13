@@ -14,7 +14,7 @@
     leave: {
       label: "Leave and Time Off",
       tiles: [
-        { title: "Annual Leave", url: "#", icon: "palm" },
+        { title: "Annual Leave", url: "wfm/annual-leave.html", icon: "palm" },
         { title: "Time Off", url: "#", icon: "calendar" },
         { title: "Leave Balance", url: "#", icon: "chart" },
         { title: "Comp-Off Balance", url: "#", icon: "hourglass" }
