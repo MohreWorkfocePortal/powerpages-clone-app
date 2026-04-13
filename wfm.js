@@ -3,7 +3,7 @@
     scheduling: {
       label: "Scheduling",
       tiles: [
-        { title: "Schedule", url: "#", icon: "calendar" },
+        { title: "Schedule", url: "wfm/schedule.html", icon: "calendar" },
         { title: "Shift Summary", url: "#", icon: "chart" },
         { title: "Coverage", url: "#", icon: "tools" },
         { title: "Overtime", url: "#", icon: "hourglass" },
