@@ -2,287 +2,308 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Schedule | TWASOUL Workforce Portal</title>
 
   <link rel="stylesheet" href="../header.css" />
   <link rel="stylesheet" href="./schedule.css" />
 </head>
 <body>
-  <!-- Shared Header -->
-  <header class="pp-header">
-    <div class="pp-header-top">
-      <div class="pp-logo-wrap">
-        <a href="../home.html" class="pp-logo-link">
-          <img src="../assets/images/logo.png" alt="TWASOUL Logo" class="pp-logo" />
-        </a>
-      </div>
 
-      <div class="pp-header-actions">
-        <button class="pp-header-btn" type="button">Chat</button>
-        <button class="pp-header-btn" type="button">
-          Inbox <span class="pp-badge">0</span>
-        </button>
+<header class="pp-header" role="banner">
 
-        <div class="pp-search-wrap">
-          <input type="text" class="pp-search-input" placeholder="Search in portal" />
+  <div class="pp-topwhite">
+    <div class="pp-topwhite-inner">
+
+      <a class="pp-brand" href="../home.html">
+        <img src="../assets/images/02.png" class="pp-brand-logo" alt="TWASOUL"/>
+      </a>
+
+      <div class="pp-topwhite-right">
+
+        <div class="pp-pillbar">
+          <a class="pp-pill" href="#">Chat</a>
+          <a class="pp-pill" href="#">Inbox <span class="pp-badge">0</span></a>
         </div>
 
-        <div class="pp-profile-wrap">
-          <button class="pp-profile-btn" id="profileBtn" type="button">
-            <img src="../assets/images/profile.jpg" alt="Profile" class="pp-profile-avatar" />
+        <div class="pp-topwhite-search">
+          <input class="pp-search-input" type="search" placeholder="Search in portal"/>
+        </div>
+
+        <div class="pp-profile">
+          <button class="pp-avatar-btn" id="ppAvatarBtn" type="button">
+            <img src="../assets/images/profile-avatar.png" class="pp-avatar-img" alt="Profile"/>
           </button>
 
-          <div class="pp-profile-menu" id="profileMenu">
-            <a href="#">My Profile</a>
-            <a href="#">Settings</a>
-            <a href="#">Logout</a>
+          <div class="pp-popover" id="ppProfilePopover">
+            <div class="pp-popover-top">
+              <div class="pp-popover-photo">
+                <img src="../assets/images/profile-avatar.png" alt="Profile"/>
+              </div>
+              <div class="pp-popover-meta">
+                <div class="pp-popover-name">Said Abdallah Othman</div>
+                <div class="pp-popover-sub">WFM</div>
+                <div class="pp-popover-sub2">Real Time Management Officer</div>
+              </div>
+            </div>
+
+            <div class="pp-popover-footer">
+              <a href="#" class="pp-footlink">Preferences</a>
+              <a href="#" class="pp-footlink">My Files</a>
+              <a href="#" class="pp-footlink pp-footlink-danger">Logout</a>
+            </div>
           </div>
         </div>
+
       </div>
     </div>
+  </div>
 
-    <nav class="pp-top-nav">
-      <a href="../home.html">Home</a>
-      <a href="../dashboard/dashboard.html">Dashboard</a>
-      <a href="../wfm.html" class="active">WFM</a>
-      <a href="../my-request.html">My Request</a>
-      <a href="../operational-activities.html">Operational Activities</a>
-      <a href="../performance.html">Performance</a>
-    </nav>
-  </header>
+  <div class="pp-navbar">
+    <div class="pp-navbar-inner">
 
-  <!-- Breadcrumb band -->
-  <section class="pp-page-band">
-    <div class="pp-page-band-inner">
-      <div class="pp-breadcrumb">
+      <nav class="pp-menu">
+        <ul class="pp-menu-root">
+          <li class="pp-item"><a class="pp-link" href="../home.html">Home</a></li>
+          <li class="pp-item"><a class="pp-link" href="../dashboard/index.html">Dashboard</a></li>
+          <li class="pp-item"><a class="pp-link is-active" href="../wfm.html">WFM</a></li>
+          <li class="pp-item"><a class="pp-link" href="../my-request.html">My Request</a></li>
+          <li class="pp-item"><a class="pp-link" href="../operational-activities.html">Operational Activities</a></li>
+          <li class="pp-item"><a class="pp-link" href="../performance.html">Performance</a></li>
+        </ul>
+      </nav>
+
+      <div class="pp-crumbbar">
         <a href="../home.html">Home</a>
-        <span>›</span>
+        <span class="pp-crumb-sep">›</span>
         <a href="../wfm.html">WFM</a>
-        <span>›</span>
+        <span class="pp-crumb-sep">›</span>
         <span>Schedule</span>
       </div>
+
     </div>
-  </section>
+  </div>
+</header>
 
-  <main class="schedule-shell">
-    <div class="ms-page">
+<main id="mainContent" class="page-main">
+  <div class="ms-page">
 
-      <div class="ms-title-row">
-        <h1 class="ms-title">Master Schedule</h1>
+    <div class="ms-title-row">
+      <h1 class="ms-title">Master Schedule</h1>
+    </div>
+
+    <div class="ms-control-row">
+      <div class="ms-left-controls">
+        <div class="ms-view-switch" id="msViewSwitch">
+          <button type="button" id="btnCsvView" class="ms-view-btn">CSV</button>
+          <button type="button" id="btnLiveView" class="ms-view-btn active">Live</button>
+        </div>
       </div>
 
-      <div class="ms-control-row">
-        <div class="ms-left-controls">
-          <div class="ms-view-switch" id="msViewSwitch">
-            <button type="button" id="btnCsvView" class="ms-view-btn">CSV</button>
-            <button type="button" id="btnLiveView" class="ms-view-btn active">Live</button>
-          </div>
-        </div>
+      <div class="ms-date-center">
+        <div class="ms-weekbar">
+          <div class="ms-wk-center">
+            <div id="wkTitle" class="ms-wk-title"></div>
 
-        <div class="ms-date-center">
-          <div class="ms-weekbar">
-            <div class="ms-wk-center">
-              <div id="wkTitle" class="ms-wk-title"></div>
+            <div class="ms-wk-date-row">
+              <button id="wkPrev" class="ms-wk-btn" type="button">‹</button>
 
-              <div class="ms-wk-date-row">
-                <button id="wkPrev" class="ms-wk-btn" type="button">‹</button>
+              <button id="dateRangeBtn" class="ms-date-range-btn" type="button">
+                Select date range ▾
+              </button>
 
-                <button id="dateRangeBtn" class="ms-date-range-btn" type="button">
-                  Select date range ▾
-                </button>
+              <button id="wkNext" class="ms-wk-btn" type="button">›</button>
+            </div>
 
-                <button id="wkNext" class="ms-wk-btn" type="button">›</button>
+            <div id="datePopover" class="ms-date-popover" hidden>
+              <div class="ms-date-popover-left">
+                <div class="ms-dp-title">PRESETS</div>
+
+                <button data-preset="today" class="ms-dp-preset" type="button">Today</button>
+                <button data-preset="tomorrow" class="ms-dp-preset" type="button">Tomorrow</button>
+                <button data-preset="thisweek" class="ms-dp-preset" type="button">This week</button>
+                <button data-preset="nextweek" class="ms-dp-preset" type="button">Next week</button>
+                <button data-preset="lastweek" class="ms-dp-preset" type="button">Last week</button>
+                <button data-preset="thismonth" class="ms-dp-preset" type="button">This month</button>
+                <button data-preset="lastmonth" class="ms-dp-preset" type="button">Last month</button>
+                <button data-preset="all" class="ms-dp-preset" type="button">All dates in view</button>
               </div>
 
-              <div id="datePopover" class="ms-date-popover" hidden>
-                <div class="ms-date-popover-left">
-                  <div class="ms-dp-title">PRESETS</div>
+              <div class="ms-date-popover-right">
+                <div class="ms-dp-row">
+                  <div class="ms-dp-field">
+                    <label for="dpStart">Start</label>
+                    <input id="dpStart" type="date" />
+                  </div>
 
-                  <button data-preset="today" class="ms-dp-preset" type="button">Today</button>
-                  <button data-preset="tomorrow" class="ms-dp-preset" type="button">Tomorrow</button>
-                  <button data-preset="thisweek" class="ms-dp-preset" type="button">This week</button>
-                  <button data-preset="nextweek" class="ms-dp-preset" type="button">Next week</button>
-                  <button data-preset="lastweek" class="ms-dp-preset" type="button">Last week</button>
-                  <button data-preset="thismonth" class="ms-dp-preset" type="button">This month</button>
-                  <button data-preset="lastmonth" class="ms-dp-preset" type="button">Last month</button>
-                  <button data-preset="all" class="ms-dp-preset" type="button">All dates in view</button>
+                  <div class="ms-dp-field">
+                    <label for="dpEnd">End</label>
+                    <input id="dpEnd" type="date" />
+                  </div>
                 </div>
 
-                <div class="ms-date-popover-right">
-                  <div class="ms-dp-row">
-                    <div class="ms-dp-field">
-                      <label for="dpStart">Start</label>
-                      <input id="dpStart" type="date" />
-                    </div>
-
-                    <div class="ms-dp-field">
-                      <label for="dpEnd">End</label>
-                      <input id="dpEnd" type="date" />
-                    </div>
-                  </div>
-
-                  <div class="ms-dp-actions">
-                    <button id="dpCancel" class="ms-btn" type="button">Cancel</button>
-                    <button id="dpApply" class="ms-btn primary" type="button">Apply</button>
-                  </div>
+                <div class="ms-dp-actions">
+                  <button id="dpCancel" class="ms-btn" type="button">Cancel</button>
+                  <button id="dpApply" class="ms-btn primary" type="button">Apply</button>
                 </div>
               </div>
             </div>
           </div>
         </div>
+      </div>
 
-        <div class="ms-legend-wrap" id="msLegendWrap">
-          <div class="ms-legend-item">
-            <span class="ms-dot weekly"></span>
-            <span>Weekly</span>
-            <b id="countWeeklyReq">0</b>
-          </div>
-
-          <div class="ms-legend-item">
-            <span class="ms-dot change"></span>
-            <span>Change</span>
-            <b id="countChangeReq">0</b>
-          </div>
-
-          <div class="ms-legend-item">
-            <span class="ms-dot swap"></span>
-            <span>Swap</span>
-            <b id="countSwapReq">0</b>
-          </div>
-
-          <div class="ms-legend-item">
-            <span class="ms-dot normal"></span>
-            <span>Normal</span>
-          </div>
+      <div class="ms-legend-wrap" id="msLegendWrap">
+        <div class="ms-legend-item">
+          <span class="ms-dot weekly"></span>
+          <span>Weekly</span>
+          <b id="countWeeklyReq">0</b>
         </div>
 
-        <div class="ms-status-wrap">
-          <div id="scheduleBanner" class="ms-status-text" data-kind="info">
-            Loading schedule...
-          </div>
+        <div class="ms-legend-item">
+          <span class="ms-dot change"></span>
+          <span>Change</span>
+          <b id="countChangeReq">0</b>
         </div>
 
-        <div class="ms-right-controls">
-          <button type="button" id="btnHideColumns" class="ms-btn">Hide</button>
-          <button type="button" id="btnViewSummary" class="ms-btn">Summary</button>
-          <button type="button" id="btnRefreshTable" class="ms-btn">Refresh</button>
+        <div class="ms-legend-item">
+          <span class="ms-dot swap"></span>
+          <span>Swap</span>
+          <b id="countSwapReq">0</b>
+        </div>
+
+        <div class="ms-legend-item">
+          <span class="ms-dot normal"></span>
+          <span>Normal</span>
         </div>
       </div>
 
-      <div class="ms-table-wrap" id="tableWrap">
-        <table id="scheduleTable" class="ms-table">
-          <thead>
-            <tr id="scheduleHead"></tr>
-          </thead>
-          <tbody id="scheduleBody"></tbody>
-        </table>
-      </div>
-
-      <div class="ms-bottom-dock">
-        <div class="ms-alpha-wrap" id="alphaWrap">
-          <button type="button" class="ms-alpha-btn active" data-alpha="All">All</button>
-          <button type="button" class="ms-alpha-btn" data-alpha="A">A</button>
-          <button type="button" class="ms-alpha-btn" data-alpha="B">B</button>
-          <button type="button" class="ms-alpha-btn" data-alpha="C">C</button>
-          <button type="button" class="ms-alpha-btn" data-alpha="D">D</button>
-          <button type="button" class="ms-alpha-btn" data-alpha="E">E</button>
-          <button type="button" class="ms-alpha-btn" data-alpha="F">F</button>
-          <button type="button" class="ms-alpha-btn" data-alpha="G">G</button>
-          <button type="button" class="ms-alpha-btn" data-alpha="H">H</button>
-          <button type="button" class="ms-alpha-btn" data-alpha="I">I</button>
-          <button type="button" class="ms-alpha-btn" data-alpha="J">J</button>
-          <button type="button" class="ms-alpha-btn" data-alpha="K">K</button>
-          <button type="button" class="ms-alpha-btn" data-alpha="L">L</button>
-          <button type="button" class="ms-alpha-btn" data-alpha="M">M</button>
-          <button type="button" class="ms-alpha-btn" data-alpha="N">N</button>
-          <button type="button" class="ms-alpha-btn" data-alpha="O">O</button>
-          <button type="button" class="ms-alpha-btn" data-alpha="P">P</button>
-          <button type="button" class="ms-alpha-btn" data-alpha="Q">Q</button>
-          <button type="button" class="ms-alpha-btn" data-alpha="R">R</button>
-          <button type="button" class="ms-alpha-btn" data-alpha="S">S</button>
-          <button type="button" class="ms-alpha-btn" data-alpha="T">T</button>
-          <button type="button" class="ms-alpha-btn" data-alpha="U">U</button>
-          <button type="button" class="ms-alpha-btn" data-alpha="V">V</button>
-          <button type="button" class="ms-alpha-btn" data-alpha="W">W</button>
-          <button type="button" class="ms-alpha-btn" data-alpha="X">X</button>
-          <button type="button" class="ms-alpha-btn" data-alpha="Y">Y</button>
-          <button type="button" class="ms-alpha-btn" data-alpha="Z">Z</button>
-        </div>
-
-        <div class="ms-bottom-scroll" id="bottomScroll">
-          <div id="bottomScrollInner"></div>
+      <div class="ms-status-wrap">
+        <div id="scheduleBanner" class="ms-status-text" data-kind="info">
+          Loading schedule...
         </div>
       </div>
 
-      <div id="msFilterPopover" class="ms-filter-pop" hidden>
-        <div class="ms-filter-pop-head">
-          <div id="msFilterTitle" class="ms-filter-title">Filter</div>
-          <button type="button" id="msFilterClose" class="ms-filter-close" aria-label="Close">✕</button>
-        </div>
-
-        <div class="ms-filter-search-wrap">
-          <input id="msFilterSearch" class="ms-filter-search" type="text" placeholder="Search..." />
-        </div>
-
-        <div class="ms-filter-actions">
-          <button type="button" id="msFilterSelectAll" class="ms-mini-btn">Select all</button>
-          <button type="button" id="msFilterClear" class="ms-mini-btn">Clear</button>
-        </div>
-
-        <div id="msFilterList" class="ms-filter-list"></div>
-
-        <div class="ms-filter-footer">
-          <button type="button" id="msFilterResetCol" class="ms-btn">Reset</button>
-          <button type="button" id="msFilterApply" class="ms-btn primary">Apply</button>
-        </div>
+      <div class="ms-right-controls">
+        <button type="button" id="btnHideColumns" class="ms-btn">Hide</button>
+        <button type="button" id="btnViewSummary" class="ms-btn">Summary</button>
+        <button type="button" id="btnRefreshTable" class="ms-btn">Refresh</button>
       </div>
-
-      <div id="hideColsModal" class="ms-modal" hidden>
-        <div class="ms-modal-backdrop" data-close-hide="1"></div>
-
-        <div class="ms-modal-dialog ms-small-dialog" role="dialog" aria-modal="true">
-          <div class="ms-modal-head">
-            <h2 class="ms-modal-title">Hide Columns</h2>
-            <button type="button" id="hideColsClose" class="ms-modal-close">✕</button>
-          </div>
-
-          <div class="ms-modal-body">
-            <div id="hideColsList" class="ms-hide-list"></div>
-          </div>
-
-          <div class="ms-modal-foot">
-            <button type="button" id="hideColsCancel" class="ms-btn">Cancel</button>
-            <button type="button" id="hideColsApply" class="ms-btn primary">Apply</button>
-          </div>
-        </div>
-      </div>
-
-      <div id="summaryModal" class="ms-modal" hidden>
-        <div class="ms-modal-backdrop" data-close-summary="1"></div>
-
-        <div class="ms-modal-dialog ms-summary-dialog" role="dialog" aria-modal="true">
-          <div class="ms-modal-head">
-            <h2 class="ms-modal-title">View Summary</h2>
-            <button type="button" id="summaryClose" class="ms-modal-close">✕</button>
-          </div>
-
-          <div class="ms-modal-sub" id="summarySub"></div>
-
-          <div class="ms-modal-body">
-            <div class="ms-summary-wrap" id="summaryWrap"></div>
-          </div>
-
-          <div class="ms-modal-foot">
-            <button type="button" id="summaryClose2" class="ms-btn">Close</button>
-          </div>
-        </div>
-      </div>
-
     </div>
-  </main>
 
-  <script src="../header.js"></script>
-  <script src="./schedule.js"></script>
+    <div class="ms-table-wrap" id="tableWrap">
+      <table id="scheduleTable" class="ms-table">
+        <thead>
+          <tr id="scheduleHead"></tr>
+        </thead>
+        <tbody id="scheduleBody"></tbody>
+      </table>
+    </div>
+
+    <div class="ms-bottom-dock">
+      <div class="ms-alpha-wrap" id="alphaWrap">
+        <button type="button" class="ms-alpha-btn active" data-alpha="All">All</button>
+        <button type="button" class="ms-alpha-btn" data-alpha="A">A</button>
+        <button type="button" class="ms-alpha-btn" data-alpha="B">B</button>
+        <button type="button" class="ms-alpha-btn" data-alpha="C">C</button>
+        <button type="button" class="ms-alpha-btn" data-alpha="D">D</button>
+        <button type="button" class="ms-alpha-btn" data-alpha="E">E</button>
+        <button type="button" class="ms-alpha-btn" data-alpha="F">F</button>
+        <button type="button" class="ms-alpha-btn" data-alpha="G">G</button>
+        <button type="button" class="ms-alpha-btn" data-alpha="H">H</button>
+        <button type="button" class="ms-alpha-btn" data-alpha="I">I</button>
+        <button type="button" class="ms-alpha-btn" data-alpha="J">J</button>
+        <button type="button" class="ms-alpha-btn" data-alpha="K">K</button>
+        <button type="button" class="ms-alpha-btn" data-alpha="L">L</button>
+        <button type="button" class="ms-alpha-btn" data-alpha="M">M</button>
+        <button type="button" class="ms-alpha-btn" data-alpha="N">N</button>
+        <button type="button" class="ms-alpha-btn" data-alpha="O">O</button>
+        <button type="button" class="ms-alpha-btn" data-alpha="P">P</button>
+        <button type="button" class="ms-alpha-btn" data-alpha="Q">Q</button>
+        <button type="button" class="ms-alpha-btn" data-alpha="R">R</button>
+        <button type="button" class="ms-alpha-btn" data-alpha="S">S</button>
+        <button type="button" class="ms-alpha-btn" data-alpha="T">T</button>
+        <button type="button" class="ms-alpha-btn" data-alpha="U">U</button>
+        <button type="button" class="ms-alpha-btn" data-alpha="V">V</button>
+        <button type="button" class="ms-alpha-btn" data-alpha="W">W</button>
+        <button type="button" class="ms-alpha-btn" data-alpha="X">X</button>
+        <button type="button" class="ms-alpha-btn" data-alpha="Y">Y</button>
+        <button type="button" class="ms-alpha-btn" data-alpha="Z">Z</button>
+      </div>
+
+      <div class="ms-bottom-scroll" id="bottomScroll">
+        <div id="bottomScrollInner"></div>
+      </div>
+    </div>
+
+    <div id="msFilterPopover" class="ms-filter-pop" hidden>
+      <div class="ms-filter-pop-head">
+        <div id="msFilterTitle" class="ms-filter-title">Filter</div>
+        <button type="button" id="msFilterClose" class="ms-filter-close" aria-label="Close">✕</button>
+      </div>
+
+      <div class="ms-filter-search-wrap">
+        <input id="msFilterSearch" class="ms-filter-search" type="text" placeholder="Search..." />
+      </div>
+
+      <div class="ms-filter-actions">
+        <button type="button" id="msFilterSelectAll" class="ms-mini-btn">Select all</button>
+        <button type="button" id="msFilterClear" class="ms-mini-btn">Clear</button>
+      </div>
+
+      <div id="msFilterList" class="ms-filter-list"></div>
+
+      <div class="ms-filter-footer">
+        <button type="button" id="msFilterResetCol" class="ms-btn">Reset</button>
+        <button type="button" id="msFilterApply" class="ms-btn primary">Apply</button>
+      </div>
+    </div>
+
+    <div id="hideColsModal" class="ms-modal" hidden>
+      <div class="ms-modal-backdrop" data-close-hide="1"></div>
+
+      <div class="ms-modal-dialog ms-small-dialog" role="dialog" aria-modal="true">
+        <div class="ms-modal-head">
+          <h2 class="ms-modal-title">Hide Columns</h2>
+          <button type="button" id="hideColsClose" class="ms-modal-close">✕</button>
+        </div>
+
+        <div class="ms-modal-body">
+          <div id="hideColsList" class="ms-hide-list"></div>
+        </div>
+
+        <div class="ms-modal-foot">
+          <button type="button" id="hideColsCancel" class="ms-btn">Cancel</button>
+          <button type="button" id="hideColsApply" class="ms-btn primary">Apply</button>
+        </div>
+      </div>
+    </div>
+
+    <div id="summaryModal" class="ms-modal" hidden>
+      <div class="ms-modal-backdrop" data-close-summary="1"></div>
+
+      <div class="ms-modal-dialog ms-summary-dialog" role="dialog" aria-modal="true">
+        <div class="ms-modal-head">
+          <h2 class="ms-modal-title">View Summary</h2>
+          <button type="button" id="summaryClose" class="ms-modal-close">✕</button>
+        </div>
+
+        <div class="ms-modal-sub" id="summarySub"></div>
+
+        <div class="ms-modal-body">
+          <div class="ms-summary-wrap" id="summaryWrap"></div>
+        </div>
+
+        <div class="ms-modal-foot">
+          <button type="button" id="summaryClose2" class="ms-btn">Close</button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</main>
+
+<script src="../header.js"></script>
+<script src="./schedule.js"></script>
+
 </body>
 </html>
